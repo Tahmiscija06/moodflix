@@ -3,10 +3,11 @@ import Footer from "../components/Footer/Footer"
 import Navbar from "../components/Navbar/Navbar"
 import { useEffect, useState } from "react";
 import { MOOD_GENRE_MAPPING } from "../common/constants";
+import MovieListPage from "../components/MovieList/MovieList";
 
-const MovieListPage = () => {
+const MovieList = () => {
   const { mood } = useParams();
-  const [movies, setMovies] = useState ({});
+  const [movies, setMovies] = useState ([]);
   useEffect(()=> {
     fetch (`/data/movies_data_${MOOD_GENRE_MAPPING[mood]}.json`)
     .then((response) => response.json ())
@@ -30,4 +31,4 @@ const MovieListPage = () => {
   )
 }
 
-export default MovieListPage
+export default MovieList
